@@ -1,9 +1,13 @@
-import os
-from app.models.property_messages import ExceptionMessages, UserOptions, ProgramStartOptions
-from app.resources.file_handlers.txt_file_handler.txt_file_handler import TxtFileHandler
-from app.ciphers.caesar_cipher.caesar_cipher import CaesarCipher
 import json
+import os
 import time
+
+from app.ciphers.caesar_cipher.caesar_cipher import CaesarCipher
+from app.models.property_messages import (ExceptionMessages,
+                                          ProgramStartOptions, UserOptions)
+from app.resources.file_handlers.txt_file_handler.txt_file_handler import \
+    TxtFileHandler
+
 
 def enter_option() -> str:
     """

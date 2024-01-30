@@ -1,5 +1,7 @@
-from app.ciphers.caesar_cipher.caesar_cipher import CaesarCipher
 import pytest
+
+from app.ciphers.caesar_cipher.caesar_cipher import CaesarCipher
+
 
 @pytest.fixture
 def caesar_cipher():

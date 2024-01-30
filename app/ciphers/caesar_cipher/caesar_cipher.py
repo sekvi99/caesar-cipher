@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import Dict
+
 from app.ciphers.abstract_cipher import AbstractCipher
+
 
 @dataclass(frozen=True)
 class CaesarCipher(AbstractCipher):
