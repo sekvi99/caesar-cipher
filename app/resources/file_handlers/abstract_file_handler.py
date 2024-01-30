@@ -1,7 +1,7 @@
-from dataclasses import dataclass
 from abc import ABC, abstractmethod
-from app.models.property_messages import ExceptionMessages
 import os
+from app.models.property_messages import ExceptionMessages  # Assuming you have an ExceptionMessages module
+from dataclasses import dataclass
 
 @dataclass
 class AbstractFileHandler(ABC):
@@ -9,22 +9,22 @@ class AbstractFileHandler(ABC):
     
     @property
     def file_path(self) -> str:
-        """_summary_
+        """Get the file path.
 
         Returns:
-            str: _description_
+            str: The file path.
         """
         return self._file_path
     
-    @property.setter
-    def file_path(self, value: str) -> str:
-        """_summary_
+    @file_path.setter
+    def file_path(self, value: str) -> None:
+        """Set the file path.
 
         Args:
-            value (str): _description_
+            value (str): The new file path.
 
-        Returns:
-            str: _description_
+        Raises:
+            FileNotFoundError: If the specified file path does not exist.
         """
         if not os.path.exists(value):
             raise FileNotFoundError(ExceptionMessages.FILE_NOT_FOUND)
@@ -33,17 +33,18 @@ class AbstractFileHandler(ABC):
                 
     @abstractmethod
     def read_file(self) -> str:
-        """_summary_
+        """Read the contents of the file.
 
         Returns:
-            str: _description_
+            str: The contents of the file.
         """
         ...
         
     @abstractmethod
     def write_file(self, message: str) -> None:
-        """
-        
+        """Write the given message to the file.
+
+        Args:
+            message (str): The message to write to the file.
         """
         ...
-    
